@@ -3,11 +3,13 @@ import { FormattedMessage } from 'react-intl';
 
 import Align from './Align'
 import ButtonStyle from './ButtonStyle'
+import ButtonStyle1 from './ButtonStyle1'
+import ButtonStyle2 from './ButtonStyle2'
 import Img from './Img';
 import messages from './messages';
-import Help from './help.svg';
-import Signal from './signal.svg';
-import Document from './document.svg';
+import Help from 'components/Assests/help.svg';
+import Signal from 'components/Assests/signal.svg';
+import Document from 'components/Assests/document.svg';
 
 
 function Body() {
@@ -19,14 +21,14 @@ function Body() {
             <FormattedMessage {...messages.techSupport} />
 
           </ButtonStyle>
-          <ButtonStyle onClick={() => console.log('test')} to="/services/billing-account">
+          <ButtonStyle1 onClick={() => console.log('test')} to="/services/billing-account">
             <Img src={Document} alt="billing-account-services - Logo"/>
-            <FormattedMessage {...messages.billingAccount} />
-          </ButtonStyle>
-          <ButtonStyle onClick={() => console.log('test')} to="/talk-to-an-agent">
+            <FormattedMessage {...messages.billingAccount}/>
+          </ButtonStyle1>
+          <ButtonStyle2 onClick={() => console.log('test')} to="/services/general-questions/talk-to-an-agent">
             <Img src={Help} alt="general-questions - Logo"/>
             <FormattedMessage {...messages.generalQuestions} />
-          </ButtonStyle>
+          </ButtonStyle2>
         </Align>
       </div>
     );

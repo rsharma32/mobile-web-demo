@@ -19,9 +19,10 @@ import Footer from 'components/Footer';
 import Body from 'components/ServicesBody'
 import GlobalStyle from '../../global-styles';
 import TechSupportPage from 'containers/TechSupportPage/Loadable';
-import BillingPage from 'containers/BillingPage/Loadable'
-import TalkPage from 'containers/TalkPage/Loadable'
-
+import BillingPage from 'containers/BillingPage/Loadable';
+import TalkPage from 'containers/TalkPage/Loadable';
+import TalkPageBilling from 'containers/TalkPageBilling/Loadable';
+import TalkPageTech from 'containers/TalkPageTech/Loadable';
 
 const AppWrapper = styled.div`
   max-width: 375px;
@@ -45,7 +46,9 @@ export default function App() {
         <Route path="/smart-connect" component={FeaturePage} />
         <Route path="/services/tech-support" component={TechSupportPage} />
         <Route path="/services/billing-account" component={BillingPage} />
-        <Route path="/talk-to-an-agent" component={TalkPage} />
+        <Route path="/services/general-questions/talk-to-an-agent" component={TalkPage} />
+        <Route path="/tech-support/talk-to-an-agent" component={TalkPageTech} />
+        <Route path="/billing-account/talk-to-an-agent" component={TalkPageBilling} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

@@ -5,11 +5,12 @@ import A from './A';
 import T from './Text';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
+import HeaderLink2 from './HeaderLink2';
 import messages from './messages';
 
 import Img3 from './Img3';
 import D from './D';
-import Arrow3 from './left-arrow-3.svg';
+import Arrow3 from 'components/Assests/left-arrow-3.svg';
 import ButtonStyle from './ButtonStyle';
 
 function BillingHeader() {
@@ -26,9 +27,9 @@ function BillingHeader() {
         <HeaderLink onClick={() => console.log('test')} to="/services">
           <FormattedMessage {...messages.services} />
         </HeaderLink>
-        <HeaderLink onClick={() => console.log('test')} to="/smart-connect">
+        <HeaderLink2 onClick={() => console.log('test')} to="/smart-connect">
           <FormattedMessage {...messages.smart_connect} />
-        </HeaderLink>
+        </HeaderLink2>
       </NavBar>
     </div>
   );

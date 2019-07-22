@@ -6,17 +6,18 @@ import B from './B';
 import C from './C';
 import T from './Text';
 import NavBar from './NavBar';
-import Align from './Align'
+import Align from './Align';
+import Align2 from './Align2';
 import HeaderLink from './HeaderLink';
-import Call from './call-answer.svg';
-import Chat from './chat.svg';
-import Arrow1 from './left-arrow-1.svg';
+import Call from 'components/Assests/call-answer.svg';
+import Chat from 'components/Assests/chat.svg';
+import Arrow1 from 'components/Assests/left-arrow-1.svg';
 import Img from './Img';
 import Img2 from './Img2';
 
 import Img3 from './Img3';
 import D from './D';
-import Arrow3 from './left-arrow-3.svg';
+import Arrow3 from 'components/Assests/left-arrow-3.svg';
 import ButtonStyle from './ButtonStyle';
 
 import moreText from './moreText';
@@ -45,14 +46,14 @@ function TalkHeader() {
         </moreText>
         <Img2 src={Arrow1} alt="arrow-1 - Logo"/>
       </Align>
-      <Align>
+      <Align2>
         <Img src={Chat} alt="chat - Logo"/>
         <moreText>
             <B>Chat</B>
             <C>(Est. Wait Time: None)</C>
         </moreText>
         <Img2 src={Arrow1} alt="arrow-1 - Logo"/>
-      </Align>
+      </Align2>
     </div>
   );
 }
