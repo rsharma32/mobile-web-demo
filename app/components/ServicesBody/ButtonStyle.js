@@ -4,9 +4,6 @@ import styled from 'styled-components';
 export default styled(Link)`
   width: 50%;
   height: 168px;
-  border-left: 1px solid #C1C1C1;
-  border-right: 1px solid #C1C1C1;
-  border-bottom: 1px solid #C1C1C1;
   color: #000000;
   cursor: pointer;
   outline: 0;
@@ -16,9 +13,14 @@ export default styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px 0;
   text-decoration: none;
   border-radius: none;
   user-select: none;
+  box-shadow: 
+    1px 0 0 0 #C1C1C1, 
+    0 1px 0 0 #C1C1C1, 
+    1px 1px 0 0 #C1C1C1,   /* Just to fix the corner */
+    1px 0 0 0 #C1C1C1 inset, 
+    0 1px 0 0 #C1C1C1 inset;
 `;

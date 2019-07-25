@@ -13,7 +13,7 @@ export default styled(Link)`
   font-family: 'Avenir Next', sans-serif;
   font-weight: 600;
   font-size: 14px;
-  border-bottom: 2px solid #C1C1C1;
+  border-bottom: 1px solid #C1C1C1;
   color: #000000;
   margin-bottom: -15px;
   padding-bottom: 17px;

@@ -10,7 +10,7 @@ import messages from './messages';
 
 import Img3 from './Img3';
 import D from './D';
-import Arrow3 from 'components/Assests/left-arrow-3.svg';
+import Arrow3 from 'components/assets/left-arrow-3.svg';
 import ButtonStyle from './ButtonStyle';
 
 function BillingHeader() {

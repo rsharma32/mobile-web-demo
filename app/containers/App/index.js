@@ -15,8 +15,6 @@ import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
-import Footer from 'components/Footer';
-import Body from 'components/ServicesBody'
 import GlobalStyle from '../../global-styles';
 import TechSupportPage from 'containers/TechSupportPage/Loadable';
 import BillingPage from 'containers/BillingPage/Loadable';

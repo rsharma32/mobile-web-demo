@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 import NormalImg from 'components/Img';
 
-const Img = styled(NormalImg)`
-  width: 60px;
-  height: 60px;
-  margin-right: 23px;
+const Img3 = styled(NormalImg)`
+  width: 10.33pxpx;
+  height: 19.27px;
+  margin-left: 21px;
 `;
 
-export default Img;
+export default Img3;

@@ -3,39 +3,59 @@ import { FormattedMessage } from 'react-intl';
 
 import Align from './Align';
 import ButtonStyle from './ButtonStyle';
-import ButtonStyle2 from './ButtonStyle2';
-import ButtonStyle3 from './ButtonStyle3';
-import ButtonStyle4 from './ButtonStyle4';
 import Img from './Img';
 import messages from './messages';
-import Account from 'components/Assests/account-balance.svg';
-import Adjustment from 'components/Assests/wallet-filled-money-tool.svg';
-import Payments from 'components/Assests/credit-card.svg';
-import Online from 'components/Assests/document.svg';
+
+import Account from 'components/assets/account-balance.svg';
+import Adjustment from 'components/assets/wallet-filled-money-tool.svg';
+import Payments from 'components/assets/credit-card.svg';
+import Online from 'components/assets/document.svg';
+
+let buttons = [
+  {
+    source: Account,
+    index: 1,
+    name: "account-balance - Logo",
+    label: messages.accountBalance
+  },
+  {
+    source: Adjustment,
+    index: 2,
+    name: "adjustment - Logo",
+    label: messages.adjustments
+  },
+  {
+    source: Payments,
+    index: 3,
+    name: "payments - Logo",
+    label: messages.payments
+  },
+  {
+    source: Online,
+    index: 4,
+    name: "online-statements - Logo",
+    label: messages.online
+  },
+]
+
+function renderButtons() {
+  return (buttons.map((button, index) => {
+    return (
+      <ButtonStyle index={index} onClick={() => console.log('test')} to="/billing-account/talk-to-an-agent">
+          <Img src={button.source} alt={button.name}/>
+          <FormattedMessage {...button.label} />
+      </ButtonStyle>
+    );
+  }
+  ));
+}
 
 function BillingBody() {
     return (
-      <div>
-        <Align>
-          <ButtonStyle onClick={() => console.log('test')} to="/billing-account/talk-to-an-agent">
-            <Img src={Account} alt="account-balance - Logo"/>
-            <FormattedMessage {...messages.accountBalance} />
-
-          </ButtonStyle>
-          <ButtonStyle2 onClick={() => console.log('test')} to="/billing-account/talk-to-an-agent">
-            <Img src={Adjustment} alt="adjustments-credits - Logo"/>
-            <FormattedMessage {...messages.adjustments} />
-          </ButtonStyle2>
-          <ButtonStyle3 onClick={() => console.log('test')} to="/billing-account/talk-to-an-agent">
-            <Img src={Payments} alt="payments - Logo"/>
-            <FormattedMessage {...messages.payments} />
-          </ButtonStyle3>
-          <ButtonStyle4 onClick={() => console.log('test')} to="/billing-account/talk-to-an-agent">
-            <Img src={Online} alt="online-statements - Logo"/>
-            <FormattedMessage {...messages.online} />
-          </ButtonStyle4>
-        </Align>
-      </div>
+      <Align>
+        {renderButtons()}
+      </Align>
+      
     );
   }
   export default BillingBody;

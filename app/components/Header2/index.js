@@ -2,7 +2,6 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import A from './A';
-import T from './Text';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
 import HeaderLink2 from './HeaderLink2';
@@ -10,12 +9,10 @@ import messages from './messages';
 
 import Img3 from './Img3';
 import D from './D';
-import Arrow3 from 'components/Assests/left-arrow-3.svg';
+import Arrow3 from 'components/assets/left-arrow-3.svg';
 import ButtonStyle from './ButtonStyle';
 
-import { tsPropertySignature } from '@babel/types';
-import Img from './Img';
-import Banner from './banner.jpg';
+
 
 function Header() {
   return (

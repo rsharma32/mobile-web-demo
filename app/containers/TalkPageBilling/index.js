@@ -1,16 +1,13 @@
-import { Helmet } from 'react-helmet';
 import React from 'react';
 import TalkBilling from 'components/TalkBilling';
-
-import { Switch, Route } from 'react-router-dom';
-
+import TalkBody from 'components/TalkBody';
 
 export default function TalkPageBilling() {
 
   return (
       <div>
           <TalkBilling />
+          <TalkBody />
       </div>
-      
   );
 }
