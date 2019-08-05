@@ -12,15 +12,8 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
-import TechSupportPage from 'containers/TechSupportPage/Loadable';
-import BillingPage from 'containers/BillingPage/Loadable';
-import TalkPage from 'containers/TalkPage/Loadable';
-import TalkPageBilling from 'containers/TalkPageBilling/Loadable';
-import TalkPageTech from 'containers/TalkPageTech/Loadable';
 
 const AppWrapper = styled.div`
   max-width: 375px;
@@ -31,6 +24,7 @@ const AppWrapper = styled.div`
 `;
 
 export default function App() {
+
   return (
     <AppWrapper>
       <Helmet
@@ -39,16 +33,7 @@ export default function App() {
       >
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
-      <Switch>
-        <Route exact path="/services" component={HomePage} />
-        <Route path="/smart-connect" component={FeaturePage} />
-        <Route path="/services/tech-support" component={TechSupportPage} />
-        <Route path="/services/billing-account" component={BillingPage} />
-        <Route path="/services/general-questions/talk-to-an-agent" component={TalkPage} />
-        <Route path="/tech-support/talk-to-an-agent" component={TalkPageTech} />
-        <Route path="/billing-account/talk-to-an-agent" component={TalkPageBilling} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+      <HomePage />
       <GlobalStyle />
     </AppWrapper>
   );

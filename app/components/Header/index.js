@@ -13,27 +13,35 @@ import D from './D';
 import Arrow3 from 'components/assets/left-arrow-3.svg';
 import ButtonStyle from './ButtonStyle';
 
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
 
-function Header() {
-  return (
-    <div>
-      <A>
-          <ButtonStyle onClick={() => console.log('test')} to="/services">
-              <Img3 src={Arrow3} alt="arrow-3 - Logo"/> 
-          </ButtonStyle>
-          <D>Visual Menu</D>
-      </A>
-      <T>How can we help you today?</T>
-      <NavBar>
-        <HeaderLink id="b1" onClick={() => console.log('test')} to="/services">
-          <FormattedMessage {...messages.services} />
-        </HeaderLink>
-        <HeaderLink2 id="b2" onClick={() => console.log('test')} to="/smart-connect">
-          <FormattedMessage {...messages.smart_connect} />
-        </HeaderLink2>
-      </NavBar>
-    </div>
-  );
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div>
+        <A>
+            <ButtonStyle onClick={() => this.props.updateSelected('services')}>
+                <Img3 src={Arrow3} alt="arrow-3 - Logo"/> 
+            </ButtonStyle>
+            <D>Visual Menu</D>
+        </A>
+        <T>How can we help you today?</T>
+        <NavBar>
+          <HeaderLink id="b1" onClick={() => this.props.updateSelected('services')}>
+            <FormattedMessage {...messages.services} />
+          </HeaderLink>
+          <HeaderLink2 id="b2" onClick={() => this.props.updateSelected('smart-connect')}>
+            <FormattedMessage {...messages.smart_connect} />
+          </HeaderLink2>
+        </NavBar>
+      </div>
+      );
+  }
 }
 
-export default Header;
+
+

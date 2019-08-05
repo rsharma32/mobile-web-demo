@@ -19,7 +19,6 @@ import ButtonStyle from './ButtonStyle.js';
 export default function FeaturePage() {
   return (
     <div>
-      <Header2 />
       <ListItem>
         <H1>
           <Img src={Find} alt="find - Logo"/>

@@ -16,41 +16,47 @@ let buttons = [
     index: 1,
     name: "tech-support - Logo",
     label: messages.techSupport,
-    link: "/services/tech-support"
+    stateName: "techSupport",
   },
   {
     source: Document,
     index: 2,
     name: "billing-account-services - Logo",
     label: messages.billingAccount,
-    link: "/services/billing-account"
+    stateName: 'billing-account'
   },
   {
     source: Help,
     index: 3,
     name: "general-questions - Logo",
     label: messages.generalQuestions,
-    link: "/services/general-questions/talk-to-an-agent"
+    stateName: 'general-questions'
   },
 ]
 
-function renderButtons() {
-  return (buttons.map((button, index) => {
-    return (
-      <ButtonStyle index={index} onClick={() => console.log('test')} to={button.link}>
-          <Img src={button.source} alt={button.name}/>
-          <FormattedMessage {...button.label} />
-      </ButtonStyle>
-    );
-  }))
-}
 
-function Body() {
+export default class Body extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+  renderButton = () => {
+    return (buttons.map((button, index) => {
+      return (
+        <ButtonStyle key={button.index} onClick={() => this.props.updateService(button.stateName)}>
+            <Img src={button.source} alt={button.name}/>
+            <FormattedMessage {...button.label} />
+        </ButtonStyle>
+      );
+    }));
+  }
+
+  render () {
     return (
       <Align>
-        {renderButtons()}
+        {this.renderButton()}
       </Align>
     );
-  }
-  
-  export default Body;
+}
+}

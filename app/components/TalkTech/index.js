@@ -7,17 +7,23 @@ import Arrow3 from 'components/assets/left-arrow-3.svg';
 import ButtonStyle from './ButtonStyle';
 
 
-function TalkTech() {
-  return (
-    <div>
-      <A>
-          <ButtonStyle onClick={() => console.log('test')} to="/services/tech-support">
-              <Img3 src={Arrow3} alt="arrow-3 - Logo"/> 
-          </ButtonStyle>
-          <D>Talk to an Agent</D>
-      </A>
-    </div>
-  );
-}
+export default class TalkTech extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default TalkTech;
+    this.state = {};
+  }
+
+  render () {
+    return (
+      <div>
+        <A>
+            <ButtonStyle onClick={() => this.props.updateService('techSupport')}>
+                <Img3 src={Arrow3} alt="arrow-3 - Logo"/> 
+            </ButtonStyle>
+            <D>Talk to an Agent</D>
+        </A>
+      </div>
+    );
+  }
+}

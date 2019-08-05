@@ -16,44 +16,54 @@ let buttons = [
     source: Graph,
     index: 1,
     name: "analytics - Logo",
-    label: messages.analytics
+    label: messages.analytics,
+    propName: 'talkAgent-tech'
   },
   {
     source: User,
     index: 2,
     name: "demand-shifting - Logo",
-    label: messages.demand
+    label: messages.demand,
+    propName: 'talkAgent-tech'
   },
   {
     source: Bot,
     index: 3,
     name: "service-bot - Logo",
-    label: messages.serviceBot
+    label: messages.serviceBot,
+    propName: 'talkAgent-tech'
   },
   {
     source: Other,
     index: 4,
     name: "customer - Logo",
-    label: messages.customer
+    label: messages.customer,
+    propName: 'talkAgent-tech'
   },
 ]
 
-function renderButttons(){
-  return (buttons.map((button, index) => {
-    return (
-      <ButtonStyle index={index} onClick={() => console.log('test')} to="/tech-support/talk-to-an-agent">
-          <Img src={button.source} alt={button.name}/>
-          <FormattedMessage {...button.label} />
-      </ButtonStyle>
-    );
-  }));
-}
+export default class TechBody extends React.Component {
+  constructor(props) {
+    super(props);
 
-function TechBody() {
+    this.state = {};
+  }
+  renderButton = () => {
+    return (buttons.map((button, index) => {
+      return (
+        <ButtonStyle key={button.index} onClick={() => this.props.updateService(button.propName)}>
+            <Img src={button.source} alt={button.name}/>
+            <FormattedMessage {...button.label} />
+        </ButtonStyle>
+      );
+    }));
+  }
+
+  render () {
     return (
       <Align>
-        {renderButttons()}
+        {this.renderButton()}
       </Align>
     );
   }
-  export default TechBody;
+}

@@ -16,46 +16,54 @@ let buttons = [
     source: Account,
     index: 1,
     name: "account-balance - Logo",
-    label: messages.accountBalance
+    label: messages.accountBalance,
+    propName: 'talkAgent-billing'
   },
   {
     source: Adjustment,
     index: 2,
     name: "adjustment - Logo",
-    label: messages.adjustments
+    label: messages.adjustments,
+    propName: 'talkAgent-billing'
   },
   {
     source: Payments,
     index: 3,
     name: "payments - Logo",
-    label: messages.payments
+    label: messages.payments,
+    propName: 'talkAgent-billing'
   },
   {
     source: Online,
     index: 4,
     name: "online-statements - Logo",
-    label: messages.online
+    label: messages.online,
+    propName: 'talkAgent-billing'
   },
 ]
 
-function renderButtons() {
-  return (buttons.map((button, index) => {
-    return (
-      <ButtonStyle index={index} onClick={() => console.log('test')} to="/billing-account/talk-to-an-agent">
-          <Img src={button.source} alt={button.name}/>
-          <FormattedMessage {...button.label} />
-      </ButtonStyle>
-    );
-  }
-  ));
-}
+export default class BillingBody extends React.Component {
+  constructor(props) {
+    super(props);
 
-function BillingBody() {
+    this.state = {};
+  }
+  renderButton = () => {
+    return (buttons.map((button, index) => {
+      return (
+        <ButtonStyle key={button.index} onClick={() => this.props.updateService(button.propName)}>
+            <Img src={button.source} alt={button.name}/>
+            <FormattedMessage {...button.label} />
+        </ButtonStyle>
+      );
+    }));
+  }
+
+  render () {
     return (
       <Align>
-        {renderButtons()}
+        {this.renderButton()}
       </Align>
-      
     );
   }
-  export default BillingBody;
+}
