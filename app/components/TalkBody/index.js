@@ -10,6 +10,7 @@ import Chat from 'components/assets/chat.svg';
 import Arrow1 from 'components/assets/left-arrow-1.svg';
 import Img from './Img';
 import Img2 from './Img2';
+import MoreText from './MoreText'
 
 function TalkBody() {
     return (
@@ -23,18 +24,18 @@ function TalkBody() {
         </NavBar>
         <Align>
             <Img src={Call} alt="call - Logo"/>
-            <moreText>
+            <MoreText>
                 <B>Call</B>
                 <C>(Est. Wait Time: ~ 5 min)</C>
-            </moreText>
+            </MoreText>
             <Img2 src={Arrow1} alt="arrow-1 - Logo"/>
         </Align>
         <Align2>
             <Img src={Chat} alt="chat - Logo"/>
-            <moreText>
+            <MoreText>
                 <B>Chat</B>
                 <C>(Est. Wait Time: None)</C>
-            </moreText>
+            </MoreText>
             <Img2 src={Arrow1} alt="arrow-1 - Logo"/>
         </Align2>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import A from './A';
-import T from './Text';
+import T from './T';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
 import HeaderLink2 from './HeaderLink2';

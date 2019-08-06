@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Text = styled.div`
+
+const T = styled.div`
+  padding: 0em;
   color: #000000;
   display: flex;
   justify-content: center;
@@ -10,4 +12,4 @@ const Text = styled.div`
   margin-bottom: 21px;
 `;
 
-export default Text;
+export default T;
