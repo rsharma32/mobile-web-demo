@@ -9,7 +9,7 @@ export default defineMessages({
   },
   demand: {
     id: `${scope}.demand_shifting`,
-    defaultMessage: 'Demand shifting',
+    defaultMessage: 'Demand Shifting',
   },
   serviceBot: {
     id: `${scope}.service_bot`,

@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default styled(Link)`
+export default styled.div`
   width: 51px;
   height: 38px;
   border: none;

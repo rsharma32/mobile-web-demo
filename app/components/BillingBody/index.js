@@ -17,28 +17,32 @@ let buttons = [
     index: 1,
     name: "account-balance - Logo",
     label: messages.accountBalance,
-    propName: 'talkAgent-billing'
+    propName: 'talkAgent-billing',
+    userSelection: 'Billing & Account Services - View Account Balance'
   },
   {
     source: Adjustment,
     index: 2,
     name: "adjustment - Logo",
     label: messages.adjustments,
-    propName: 'talkAgent-billing'
+    propName: 'talkAgent-billing',
+    userSelection: 'Billing & Account Services - Adjustments/Credits'
   },
   {
     source: Payments,
     index: 3,
     name: "payments - Logo",
     label: messages.payments,
-    propName: 'talkAgent-billing'
+    propName: 'talkAgent-billing',
+    userSelection: 'Billing & Account Services - Payments'
   },
   {
     source: Online,
     index: 4,
     name: "online-statements - Logo",
     label: messages.online,
-    propName: 'talkAgent-billing'
+    propName: 'talkAgent-billing',
+    userSelection: 'Billing & Account Services - View Online Statements'
   },
 ]
 
@@ -51,7 +55,7 @@ export default class BillingBody extends React.Component {
   renderButton = () => {
     return (buttons.map((button, index) => {
       return (
-        <ButtonStyle key={button.index} onClick={() => this.props.updateService(button.propName)}>
+        <ButtonStyle key={button.index} onClick={() => {this.props.updateService(button.propName); this.props.updateFinalService(button.userSelection);}}>
             <Img src={button.source} alt={button.name}/>
             <FormattedMessage {...button.label} />
         </ButtonStyle>

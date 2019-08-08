@@ -5,11 +5,12 @@ const List = styled.ul`
   font-weight: 500;
   font-family: 'Avenir Next', sans-serif;
   margin-bottom: 30px;
+  margin-top: -5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding-right: 63px
+  padding-right: 63px;
 `;
 
 export default List;

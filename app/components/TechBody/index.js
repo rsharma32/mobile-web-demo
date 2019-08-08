@@ -17,28 +17,32 @@ let buttons = [
     index: 1,
     name: "analytics - Logo",
     label: messages.analytics,
-    propName: 'talkAgent-tech'
+    propName: 'talkAgent-tech',
+    userSelection: 'Tech Support - Analytics Dashboard'
   },
   {
     source: User,
     index: 2,
     name: "demand-shifting - Logo",
     label: messages.demand,
-    propName: 'talkAgent-tech'
+    propName: 'talkAgent-tech',
+    userSelection: 'Tech Support - Demand Shifting'
   },
   {
     source: Bot,
     index: 3,
     name: "service-bot - Logo",
     label: messages.serviceBot,
-    propName: 'talkAgent-tech'
+    propName: 'talkAgent-tech',
+    userSelection: 'Tech Support - Service Bot'
   },
   {
     source: Other,
     index: 4,
     name: "customer - Logo",
     label: messages.customer,
-    propName: 'talkAgent-tech'
+    propName: 'talkAgent-tech',
+    userSelection: 'Tech Support - Customer Integration'
   },
 ]
 
@@ -51,7 +55,7 @@ export default class TechBody extends React.Component {
   renderButton = () => {
     return (buttons.map((button, index) => {
       return (
-        <ButtonStyle key={button.index} onClick={() => this.props.updateService(button.propName)}>
+        <ButtonStyle key={button.index} onClick={() => {this.props.updateService(button.propName); this.props.updateFinalService(button.userSelection);}}>
             <Img src={button.source} alt={button.name}/>
             <FormattedMessage {...button.label} />
         </ButtonStyle>

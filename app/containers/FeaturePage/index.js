@@ -11,10 +11,6 @@ import List from './List';
 import ListItem from './ListItem';
 import Find from 'components/assets/find.svg';
 import Img from './Img.js';
-import Input from './Input.js';
-import ButtonStyle from './ButtonStyle.js';
-
-
 
 export default class FeaturePage extends React.Component {
   constructor(props) {

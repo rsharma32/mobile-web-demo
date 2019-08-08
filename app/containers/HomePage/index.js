@@ -13,16 +13,16 @@ import TechBody from 'components/TechBody';
 import BillingHeader from 'components/BillingHeader';
 import BillingBody from 'components/BillingBody';
 import TalkHeader from 'components/TalkHeader';
-import TalkBody from 'components/TalkBody';
 import TalkTech from 'components/TalkTech';
 import TalkBilling from 'components/TalkBilling';
 import TalkConnect from 'components/TalkConnect';
-
+import CallPage from 'components/CallPage';
+import CallPageTech from 'components/CallPageTech';
+import CallPageBilling from 'components/CallPageBilling';
+import CallPageSmartConnect from 'components/CallPageSmartConnect';
 
 import Header from 'components/Header';
 import Header2 from 'components/Header2/index.js';
-import { switchCase } from '@babel/types';
-import ButtonStyle from '../../components/ServicesBody/ButtonStyle';
 import ButtonStyle2 from '../../containers/FeaturePage/ButtonStyle';
 import Input from '../../containers/FeaturePage/Input';
 
@@ -33,11 +33,12 @@ export default class HomePage extends React.Component {
     this.state = {
       selection: 'services',
       serviceSelected: 'services',
-      info: ''
+      info: '',
+      finalService: ''
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ info: event.target.value })
   }
 
@@ -50,19 +51,28 @@ export default class HomePage extends React.Component {
       return this.updateSelected('smart-connect');
     }
     else {
+      this.updateFinalService('Smart Connect');
       return this.updateSelected('talkAgent-smart-connect');
     }
   }
 
+  //selection between services or smart-connect
   updateSelected = (selection) => {
     this.setState({ selection });
   };
 
+  //all the services provided
   updateService = (serviceSelected) => {
     this.setState({ serviceSelected });
   }
 
 
+  //saves the selection to be displayed at the call page
+  updateFinalService = (finalService) => {
+    this.setState({ finalService });
+  }
+
+  //comparing the prop name to display the right page
   checkSwitch = (param) => {
     switch(param) {
 
@@ -70,28 +80,27 @@ export default class HomePage extends React.Component {
         return (
           <div>
             <Header updateSelected={this.updateSelected} />
-            <Body updateService={this.updateService} /> 
+            <Body updateService={this.updateService} updateFinalService={this.updateFinalService}/> 
           </div>
         );
       case 'techSupport':
         return (
           <div>
             <TechHeader updateService={this.updateService} updateSelected={this.updateSelected} />
-            <TechBody updateService={this.updateService} />
+            <TechBody updateService={this.updateService} updateFinalService={this.updateFinalService}/>
           </div>
         );
       case 'billing-account':
         return (
           <div>
             <BillingHeader updateService={this.updateService} updateSelected={this.updateSelected} />
-            <BillingBody updateService={this.updateService} />
+            <BillingBody updateService={this.updateService} updateFinalService={this.updateFinalService}/>
           </div>
         );
       case 'general-questions':
         return (
           <div>
             <TalkHeader updateService={this.updateService} />
-            <TalkBody />
           </div>
         );
       
@@ -99,7 +108,6 @@ export default class HomePage extends React.Component {
         return (
           <div>
             <TalkTech updateService={this.updateService}/>
-            <TalkBody />
           </div>
         );
       
@@ -107,7 +115,6 @@ export default class HomePage extends React.Component {
         return (
           <div>
             <TalkBilling updateService={this.updateService} />
-            <TalkBody />
           </div>
         );
 
@@ -123,7 +130,6 @@ export default class HomePage extends React.Component {
             <Input
             type="text"
             info={this.state.info}
-            defaultValue=""
             value={this.state.info}
             placeholder="What are you looking for?" 
             onChange={this.handleChange}
@@ -138,9 +144,35 @@ export default class HomePage extends React.Component {
       case 'talkAgent-smart-connect':
         return (
           <div>
-            {alert(`Info: ${this.state.info}`)}
-            <TalkConnect updateSelected={this.updateSelected} />
-            <TalkBody />
+            <TalkConnect updateService={this.updateService} updateSelected={this.updateSelected}/>
+          </div>
+        );
+      case 'call-page':
+        return (
+          <div>
+            <CallPage updateService={this.updateService}/>
+            {alert(`Service Selected: ${this.state.finalService}`)}
+          </div>
+        );
+      case 'call-page-tech':
+        return (
+          <div>
+            <CallPageTech updateService={this.updateService}/>
+            {alert(`Service Selected: ${this.state.finalService}`)}
+          </div>
+        );
+      case 'call-page-billing':
+        return (
+          <div>
+            <CallPageBilling updateService={this.updateService}/>
+            {alert(`Service Selected: ${this.state.finalService}`)}
+          </div>
+        );
+      case 'call-page-connect':
+        return (
+          <div>
+            <CallPageSmartConnect updateService={this.updateService} updateSelected={this.updateSelected}/>
+            {alert(`Service Selected: ${this.state.finalService} - ${this.state.info}`)}
           </div>
         );
     }
@@ -149,18 +181,14 @@ export default class HomePage extends React.Component {
   render () {
     console.log(this.state.selection)
     console.log(this.state.serviceSelected)
-    
+    console.log(this.state.finalService)
+
     if (this.state.selection === 'services') {
       return (this.checkSwitch(this.state.serviceSelected))
     } 
-    else if (this.state.selection === 'smart-connect') {
+    else if (this.state.selection === 'smart-connect' || 'talkAgent-smart-connect' || 'call-page-connect') {
       return (this.checkSwitch(this.state.selection))
     }
-    else if (this.state.selection === 'talkAgent-smart-connect') {
-      
-      return (this.checkSwitch(this.state.selection))
-    }
-    
   }
 }
 

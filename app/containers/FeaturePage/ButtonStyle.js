@@ -16,7 +16,8 @@ export default styled.div`
   padding-bottom: 10px;
   padding-left: 70px;
   padding-right: 70px;
-  margin-left: 72px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 83px;
   text-decoration: none;
   border-radius: 2px;

@@ -4,7 +4,10 @@ const Input = styled.input`
   outline: none;
   height: 44px;
   width: 325px;
-  margin-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
   padding-left: 10px; 
   resize: none;
   font-family: 'Avenir Next', sans-serif;
